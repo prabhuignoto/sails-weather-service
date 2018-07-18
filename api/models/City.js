@@ -13,9 +13,13 @@ module.exports = {
       type: 'string',
       required: true,
     },
-    coord: {
-      type: 'ref',
+    lat: {
+      type: 'string',
       required: true,
-    }
+    },
+    lng: {
+      type: 'string',
+      required: true,
+    },
   }
 };

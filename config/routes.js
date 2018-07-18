@@ -29,6 +29,9 @@ module.exports.routes = {
   'GET /openweather/getCoordinates': 'openweather/get-coordinates',
   'GET /openweather/getCountryCode': 'openweather/get-country-code',
   'GET /openweather/getWeatherInfo': 'openweather/get-weather-info',
+
+  'GET /openweather/autoSuggestCountries': 'openweather/autosuggest-countries',
+  'GET /openweather/autoSuggestCities': 'openweather/autosuggest-cities',
   // 'GET /openweather/getAllCountryPrefixes': 'get-country-prefixes',
 
   /***************************************************************************

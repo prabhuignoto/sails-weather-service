@@ -1,27 +1,37 @@
 const fetch = require('node-fetch');
 const dateFNS = require('date-fns');
+const weatherProperties = ['time','summary', 'icon', 'temperatureHigh', 'temperatureLow', 'pressure', 'windSpeed', 'visibility', 'ozone', 'humidity'];
+
+const parseHourly = function(hourly) {
+  return _.map(hourly, item => _.pick(item, weatherProperties));
+};
+
+const parseCurrenlty = function(darkskyData) {
+  return Object.assign(darkskyData, {
+    currently: _.pick(darkskyData.currently, weatherProperties)
+  });
+};
+
+
 
 module.exports = {
-  friendlyName: 'Get\'s OpenWeather Data and caches.',
+  friendlyName: 'Get\'s Darksky\'s Weather data and caches it in the DB.',
 
   description: 'Pulls 5day forecast from the openweather API and cahces for certain timeperiod.',
 
   inputs: {
-    latitude: {
-      type: 'string',
-      required: false,
-    },
-    longitude: {
-      type: 'string',
-      required: false,
-    },
-    country: {
-      type: 'string',
+    lat: {
+      type: 'number',
       required: true,
     },
-    city: {
-      type: 'string',
+    lng: {
+      type: 'number',
       required: true,
+    },
+    exclude: {
+      type: 'ref',
+      required: false,
+      defaultsTo: ['minutely', 'hourly']
     }
   },
 
@@ -34,18 +44,18 @@ module.exports = {
     }
   },
 
-  fn: async function({ city, country }, exits) {
-    const { foreCastURL, API_KEY } = sails.config.openWeather;
-    const url = `${foreCastURL}?q=${city}&appid=${API_KEY}`;
+  fn: async function({ lat, lng, exclude }, exits) {
+    const { FORECAST_URL, API_KEY } = sails.config.darksky;
+    const url = `${FORECAST_URL}/${API_KEY}/${lat},${lng}?exclude=${exclude.join(',')}`;
     let newWeatherData = null;
 
     const existingWeatherData = await Weather.findOne({
-      city,
-      country,
+      lat,
+      lng,
     });
     const hasDataExpired = function({ updatedAt }) {
       if(updatedAt) {
-        return dateFNS.differenceInMinutes(new Date(), new Date(updatedAt)) > 10;
+        return dateFNS.differenceInMinutes(new Date(), new Date(updatedAt)) > 30;
       }
       return true;
     };
@@ -53,35 +63,48 @@ module.exports = {
     // if the weatherdata does not exists, fetch it
     if(!existingWeatherData) {
       const response = await fetch(url);
-      const weatherData = await response.json();
+      const skyData = await response.json();
+      let newWeatherData = null;
 
-      if(weatherData.cod !== '404') {
+      const weatherData = Object.assign(skyData, {
+        daily: Object.assign(skyData.daily, {
+          data: _.map(skyData.daily.data, item => _.pick(item, weatherProperties))
+        }),
+        currently: _.pick(skyData.currently, weatherProperties)
+      });
+
+      if(weatherData.code !== '400') {
         newWeatherData = await Weather.create({
-          country,
-          city,
-          openWeatherData: weatherData,
+          lat,
+          lng,
+          weatherData,
         }).fetch();
-      } else {
-        newWeatherData = weatherData;
       }
 
       return exits.success( { weatherData: newWeatherData });
     } else if(hasDataExpired(existingWeatherData)){
       const response = await fetch(url);
-      const weatherData = await response.json();
+      const skyData = await response.json();
+      let newWeatherData = null;
+
+      const weatherData = Object.assign(skyData, {
+        daily: Object.assign(skyData.daily, {
+          data: _.map(skyData.daily.data, item => _.pick(item, weatherProperties))
+        }),
+        currently: _.pick(skyData.currently, weatherProperties)
+      });
 
       if(weatherData.cod !== '404') {
         newWeatherData = await Weather.update({
-          country,
-          city,
+          lat,
+          lng,
         },{
-          openWeatherData: weatherData,
+          weatherData,
         }).fetch();
-      } else {
-        newWeatherData = weatherData;
-      }
+      } 
 
-      return exits.success( { weatherData: newWeatherData });
+      return exits.success( { weatherData: newWeatherData[0] });
+
     } else if(existingWeatherData) {
       return exits.success( { weatherData: existingWeatherData });
     } else {

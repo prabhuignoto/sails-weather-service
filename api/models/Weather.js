@@ -1,14 +1,14 @@
 module.exports = {
   attributes: {
-    country: {
-      type: 'string',
+    lat: {
+      type: 'number',
       required: true,
     },
-    city: {
-      type: 'string',
+    lng: {
+      type: 'number',
       required: true,
     },
-    openWeatherData: {
+    weatherData: {
       type: 'ref',
       required: true,
     },
