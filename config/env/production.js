@@ -58,7 +58,8 @@ module.exports = {
       //  sails_datastores__default__url=mysql://admin:myc00lpAssw2D@db.example.com:3306/my_prod_db
       //  ```
       //--------------------------------------------------------------------------
-
+      adapter: 'sails-mongo',
+      url: 'mongodb://weathernow:38917002stone@ds247061.mlab.com:47061/openweather',
       /****************************************************************************
       *                                                                           *
       * More adapter-specific options                                             *
@@ -148,9 +149,9 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
-      // allowOrigins: [
-      //   'https://example.com',
-      // ]
+      allowOrigins: [
+        'https://darkweather.netlify.com',
+      ]
     },
 
   },
@@ -221,7 +222,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cookie: {
-      // secure: true,
+      secure: true,
       maxAge: 24 * 60 * 60 * 1000,  // 24 hours
     },
 
