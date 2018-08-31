@@ -20,7 +20,7 @@ module.exports = {
   },
 
   fn: async function(inputs, exits) {
-    const result = await Country.find({
+    const result = await Countries.find({
       name: { startsWith: inputs.country}
     });
 

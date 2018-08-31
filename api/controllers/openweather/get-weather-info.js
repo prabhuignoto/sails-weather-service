@@ -101,7 +101,7 @@ module.exports = {
         },{
           weatherData,
         }).fetch();
-      } 
+      }
 
       return exits.success( { weatherData: newWeatherData[0] });
 

@@ -24,7 +24,7 @@ module.exports = {
   },
 
   fn: async function(inputs, exits) {
-    const result = await City.find({
+    const result = await Cities.find({
       name: { startsWith: inputs.city},
       country: inputs.countryCode,
     });

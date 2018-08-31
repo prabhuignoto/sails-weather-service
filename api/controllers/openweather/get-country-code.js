@@ -21,7 +21,7 @@ module.exports = {
   },
 
   fn: async function(inputs, exits) {
-    let result = await Country.findOne({
+    let result = await Countries.findOne({
       where: {
         name: inputs.country,
       },

@@ -25,7 +25,7 @@ module.exports = {
   },
 
   fn: async function(inputs, exits) {
-    let result = await City.find({
+    let result = await Cities.find({
       where: {
         name: inputs.city,
         country: inputs.country,
