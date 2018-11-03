@@ -1,0 +1,6 @@
+apps:
+  - script   : './app.js'
+    name     : 'weather-service'
+    exec_mode: 'cluster'
+    instances: 1
+    instance_var: 'INSTANCE_ID'

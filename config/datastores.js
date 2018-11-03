@@ -49,7 +49,7 @@ module.exports.datastores = {
     *                                                                          *
     ***************************************************************************/
     adapter: 'sails-mongo',
-    url: 'mongodb://weathernow:38917002stone@ds247061.mlab.com:47061/openweather',
+    url: 'mongodb://localhost:27017/openweather',
   },
 
 

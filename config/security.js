@@ -30,7 +30,7 @@ module.exports.security = {
 
   cors: {
     allRoutes: true,
-    allowOrigins: ['https://darkweather.netlify.com'],
+    allowOrigins: '*',
     allowCredentials: false,
   },
 
