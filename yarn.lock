@@ -33,12 +33,13 @@
     eventemitter2 "^5.0.1"
     ws "^6.0.0"
 
-"@pm2/agent@^0.5.11":
-  version "0.5.17"
-  resolved "https://registry.yarnpkg.com/@pm2/agent/-/agent-0.5.17.tgz#af0f622bff750570ab07fefc05a2ebe1fc85b424"
-  integrity sha512-F+Dki1W4QKRQUlp2pQzrs9vSlQ8S/ItbiDH4LrKZRGXxSfK6s90iv6kJ/UycmaDXpfK12POi0dCui6ptB967Sg==
+"@pm2/agent@^0.5.22":
+  version "0.5.22"
+  resolved "https://registry.yarnpkg.com/@pm2/agent/-/agent-0.5.22.tgz#df1558b9fd077ae0b6e9cc3c6f13449746d063d6"
+  integrity sha512-f858kJafdzRwl00xUlbrw/bBSY3P7jubNFCkxQ2CVACW/XU40GRz2aWmddgR7lrIPrnQQWUq3fr/ENEJnnSZ7w==
   dependencies:
     async "^2.6.0"
+    chalk "^2.3.2"
     eventemitter2 "^5.0.1"
     fclone "^1.0.11"
     moment "^2.21.0"
@@ -65,10 +66,10 @@
     tslib "1.9.3"
     vxx "1.2.2"
 
-"@pm2/js-api@^0.5.15":
-  version "0.5.29"
-  resolved "https://registry.yarnpkg.com/@pm2/js-api/-/js-api-0.5.29.tgz#80a34713ccfa8a7d810677ab20f97c6bd5d4700e"
-  integrity sha512-Ysncol61c55Tw+OoZm1ZcGR9WIPOf09mvUHH0wO6R3hglXW0OnuZWshy/CuS5Yp4UHwHCIwlxp5OTB95u1WVtQ==
+"@pm2/js-api@^0.5.43":
+  version "0.5.44"
+  resolved "https://registry.yarnpkg.com/@pm2/js-api/-/js-api-0.5.44.tgz#ff3b23dab7ca3b763f0df0fa146747a3a1e860d8"
+  integrity sha512-1zwM2E/ueo3gu/1bbHTJjf4EmtPVtg6rzkWbuwnOgLHOVXK6QGxVTfkU+hX6k9xY0KvnmontkqnrvsDKXRpCCA==
   dependencies:
     async "^2.4.1"
     axios "^0.16.2"
@@ -1324,6 +1325,15 @@ chalk@^2.0.0, chalk@^2.1.0, chalk@^2.4.1, chalk@~2.4.1:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
+chalk@^2.3.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
+  integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
+  dependencies:
+    ansi-styles "^3.2.1"
+    escape-string-regexp "^1.0.5"
+    supports-color "^5.3.0"
+
 chalk@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-1.0.0.tgz#b3cf4ed0ff5397c99c75b8f679db2f52831f96dc"
@@ -1708,6 +1718,11 @@ date-fns@^1.29.0:
   version "1.29.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.29.0.tgz#12e609cdcb935127311d04d33334e2960a2a54e6"
   integrity sha512-lbTXWZ6M20cWH8N9S6afb0SBm6tMk+uUg6z3MqHPKE9atmsY3kJkTm8vKe93izJ2B2+q5MV990sM2CHgtAZaOw==
+
+date-fns@^1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
+  integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
 
 dateformat@~1.0.12:
   version "1.0.12"
@@ -4140,10 +4155,10 @@ negotiator@0.6.1:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
   integrity sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
 
-newrelic@^4.8.1:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/newrelic/-/newrelic-4.10.0.tgz#e51fdf3a59183030b2507c0d822bd41243891140"
-  integrity sha512-ih/tdO5jMcZ7oYiL7xtES4RBPp7EzBg5Shj8VWBmJ2lOxjWNFwTJ7EqQ7Q0U1xK1zkuZ6Gp5q37Un/N3+QAMFw==
+newrelic@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/newrelic/-/newrelic-5.1.0.tgz#55b019bb6521f62c19952443cbccc54c14b5baec"
+  integrity sha512-+nz0VyMsXkPmEe/NxaGl623o7cCr9RwlQhY63DKbUJaQJeG1BjwLDTUe2PV4BKKZyvNE9kjVYlPwpaE6eu+YiA==
   dependencies:
     "@newrelic/koa" "^1.0.0"
     "@newrelic/superagent" "^1.0.0"
@@ -4534,10 +4549,10 @@ pm2-axon@3.3.0, pm2-axon@^3.2.0:
     debug "^3.0"
     escape-regexp "0.0.1"
 
-pm2-deploy@^0.3.9:
-  version "0.3.10"
-  resolved "https://registry.yarnpkg.com/pm2-deploy/-/pm2-deploy-0.3.10.tgz#5b6689df8db2390589244b7c15c563bd467093f6"
-  integrity sha512-WagPKsX+LDCe8wLCL5nzu8RQvVUQ5GlFdJRVYCL0ogFnHfYRym91qNU4PkNSWSq11pdvG8la7DTjdW6FWXc8lw==
+pm2-deploy@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/pm2-deploy/-/pm2-deploy-0.4.0.tgz#d543076919f7776c57eb75841a4320f547287661"
+  integrity sha512-3BdCghcGwMKwl3ffHZhc+j5JY5dldH9nq8m/I9W5wehJuSRZIyO96VOgKTMv3hYp7Yk5E+2lRGm8WFNlp65vOA==
   dependencies:
     async "^2.6"
     tv4 "^1.3"
@@ -4549,14 +4564,14 @@ pm2-multimeter@^0.1.2:
   dependencies:
     charm "~0.1.1"
 
-pm2@^3.1.3:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/pm2/-/pm2-3.2.2.tgz#ddde90397d6054feb92a51230c3ae0f1e3d9f2c1"
-  integrity sha512-Un3S5hirVHy48Pqrxgrqt6deLWf2E9pVeKwFCG0zbldyq415D3QW69KG+p1Rc2S36nuW2QEHoQyoTNai7rJz5Q==
+pm2@^3.2.9:
+  version "3.2.9"
+  resolved "https://registry.yarnpkg.com/pm2/-/pm2-3.2.9.tgz#6e0e009355fa089007689d97c6565f6b3e341476"
+  integrity sha512-dlNIwmbsRe+Ttculrjj776ILtP5rjDsykxCOhpZB+ioCsnOmRUGJHrWCdmoOjcyHgA5tvE/X0s9M1J/hYsRKGQ==
   dependencies:
-    "@pm2/agent" "^0.5.11"
+    "@pm2/agent" "^0.5.22"
     "@pm2/io" "~2.4.2"
-    "@pm2/js-api" "^0.5.15"
+    "@pm2/js-api" "^0.5.43"
     async "^2.6.1"
     blessed "^0.1.81"
     chalk "^2.4.1"
@@ -4575,7 +4590,7 @@ pm2@^3.1.3:
     pidusage "^2.0.14"
     pm2-axon "3.3.0"
     pm2-axon-rpc "^0.5.1"
-    pm2-deploy "^0.3.9"
+    pm2-deploy "^0.4.0"
     pm2-multimeter "^0.1.2"
     promptly "^2"
     semver "^5.5"
